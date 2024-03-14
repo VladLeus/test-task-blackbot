@@ -2,7 +2,7 @@ export function Header() {
     return (
         <>
             <header
-                className="bg-headerAndFooterCol fixed rounded-b-2xl min-w-96 max-w-[1280px] w-screen h-36 grid place-items-center"
+                className="bg-headerCol fixed rounded-b-2xl min-w-96 max-w-[1280px] w-screen h-28 xl:h-36 grid place-items-center"
             >
                 <div className="relative flex justify-between items-center w-fit h-fit">
                     <img src="/src/assets/img/logo.png" alt="logo" className="w-12 h-12"/>

@@ -19,4 +19,4 @@ export const binanceApi = createApi({
     })
 })
 
-export const {useFetchPricesQuery, useLazyFetchPricesQuery} = binanceApi;
+export const {useLazyFetchPricesQuery} = binanceApi;
