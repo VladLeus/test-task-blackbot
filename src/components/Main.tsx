@@ -68,6 +68,7 @@ export function Main() {
                     onInput={() => {
                         setIsSelling(false);
                         setIsBuying(false);
+                        setIsInputCorrect(true);
                     }}
                     onChange={e => {
                         if (Number(e.target.value) >= 0)
