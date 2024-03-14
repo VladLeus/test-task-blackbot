@@ -7,7 +7,7 @@ export const binanceApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://api.binance.com'
     }),
-    endpoints: build =>  ({
+    endpoints: build => ({
         fetchPrices: build.query<IResponse, string>({
             query: (currency: string) => ({
                 url: '/api/v3/ticker/bookTicker',
@@ -19,4 +19,4 @@ export const binanceApi = createApi({
     })
 })
 
-export const {useLazyFetchPricesQuery} = binanceApi;
+export const {useFetchPricesQuery, useLazyFetchPricesQuery} = binanceApi;
