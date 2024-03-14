@@ -70,7 +70,7 @@ export function Main() {
                         setIsBuying(false);
                     }}
                     onChange={e => {
-                        if (Number(e.target.value) >= 0)
+                        if (Number(e.target.value) > 0)
                             setQuantity(e.target.value);
                     }}
                     min={0.01}
