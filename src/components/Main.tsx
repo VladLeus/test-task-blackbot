@@ -8,29 +8,37 @@ export function Main() {
     const [pricesData, setPricesData] = useState<IResponse>();
     const [isInputCorrect, setIsInputCorrect] = useState<boolean>(true);
     const [isBuying, setIsBuying] = useState<boolean>(false);
-    const [isSelling, setIsSelling] = useState<boolean>(false)
+    const [isSelling, setIsSelling] = useState<boolean>(false);
     const [fetchData, isLoading, isError] = useLazyFetchPricesQuery();
 
+    const validInput = (): boolean => {
+        if (!(Number(quantity) > 0)) {
+            setIsInputCorrect(false);
+            return false;
+        }
+        return true
+    }
+
     const getBuyingPricesData = async () => {
+        if (!validInput())
+            return;
         const result = await fetchData(currency);
-        if (result.data && Number(quantity) > 0) {
+        if (result.data) {
             setPricesData(result.data);
             setIsSelling(false)
             setIsBuying(true);
             setIsInputCorrect(true);
-        } else {
-            setIsInputCorrect(false)
         }
     }
     const getSellingPricesData = async () => {
+        if (!validInput())
+            return;
         const result = await fetchData(currency);
-        if (result.data && Number(quantity) > 0) {
+        if (result.data) {
             setPricesData(result.data);
             setIsBuying(false);
             setIsSelling(true);
             setIsInputCorrect(true);
-        } else {
-            setIsInputCorrect(false);
         }
     }
 
