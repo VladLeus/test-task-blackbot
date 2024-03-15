@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useLazyFetchPricesQuery} from "../store/binance/binance.api.ts";
 import {IResponse} from "../models/models.ts";
 
@@ -9,7 +9,7 @@ export function Main() {
     const [isInputCorrect, setIsInputCorrect] = useState<boolean>(true);
     const [isBuying, setIsBuying] = useState<boolean>(false);
     const [isSelling, setIsSelling] = useState<boolean>(false);
-    const [fetchData, isLoading, isError] = useLazyFetchPricesQuery();
+    const [fetchData, isLoading] = useLazyFetchPricesQuery();
 
     const validInput = (): boolean => {
         if (!(Number(quantity) > 0)) {
@@ -41,15 +41,6 @@ export function Main() {
             setIsInputCorrect(true);
         }
     }
-
-    useEffect(() => {
-        console.log(pricesData)
-    }, [pricesData]);
-
-    useEffect(() => {
-        console.log(isLoading.isLoading, isLoading.isError)
-    }, [isLoading, isError]);
-
 
     return (
         <main
